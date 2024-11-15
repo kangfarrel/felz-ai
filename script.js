@@ -1,3 +1,4 @@
+import axios from "axios";
 function sendMessage() {
     const userInput = document.getElementById('userInput');
     const chatbox = document.getElementById('chatbox');
@@ -38,7 +39,8 @@ function sendMessage() {
 
 function generateResponse(input) {
     // Simulasi logika respons AI
-    return await openai(input, logic); // Ganti dengan logika AI yang lebih kompleks
+    let res = await openai(input, logic)
+    return "F E L Z - A I\n" + res; // Ganti dengan logika AI yang lebih kompleks
 }
 
 async function openai(text, logic) {

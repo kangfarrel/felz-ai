@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FELZ - AI Chatbot</title>
+    <style>
+        body {
+            font-family: Galactic, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .chat-container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .chat-box {
+            height: 400px;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .user-message {
+            background-color: #d1e7dd;
+            text-align: right;
+        }
+        .ai-message {
+            background-color: #f8d7da;
+            text-align: left;
+        }
+        .input-container {
+            display: flex;
+            padding: 10px;
+            background: #efefef;
+        }
+        .input-container input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .input-container button {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-box" id="chat-box">
+    <h1>FELZ - AI</h1>
+        <!-- Messages will appear here -->
+    </div>
+    <div class="input-container">
+        <input type="text" id="user-input" placeholder="Message ...">
+        <button onclick="sendMessage()">➤</button>
+    </div>
+</div>
+
+<script>
+    function sendMessage() {
+        const userInput = document.getElementById('user-input').value;
+        if (userInput.trim() === '') return;
+
+        // Display user message
+        displayMessage(userInput, 'user');
+
+        // Clear input field
+        document.getElementById('user-input').value = '';
+
+        // Simulate AI response
+        setTimeout(() => {
+            const aiResponse = getAIResponse(userInput);
+            displayMessage(aiResponse, 'ai');
+        }, 1000);
+    }
+
+    function displayMessage(message, sender) {
+        const chatBox = document.getElementById('chat-box');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message ' + (sender === 'user' ? 'user-message' : 'ai-message');
+        messageDiv.textContent = message;
+        chatBox.appendChild(messageDiv);
+        chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+    }
+
+    function getAIResponse(input) {
+        // Here you can customize the AI response logic
+        return input; // Example response
+    }
+</script>
+
+</body>
+</html>

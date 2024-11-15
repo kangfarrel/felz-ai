@@ -1,4 +1,5 @@
-import axios from "axios";
+const axios = require('axios');
+
 function sendMessage() {
     const userInput = document.getElementById('userInput');
     const chatbox = document.getElementById('chatbox');

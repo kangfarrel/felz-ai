@@ -1,0 +1,10 @@
+{
+  "name": "FELZ-AI",
+  "main": "script.js",
+  "scripts": {
+    "start": "node script.js"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+  }
+}
